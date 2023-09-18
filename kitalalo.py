@@ -83,7 +83,7 @@ elif nyelv == 2:
         probalkozasok += 1
         print('[ℹ️] Attempt', probalkozasok)
         print('[🤔] I thought of a number between 1 and 5. Can guess it? Good luck!\n')
-        megadottSzam = int(input('[🔢] My guess: '))
+        megadottSzam = input('[🔢] My guess: ')
         helyesInput = False
         while not helyesInput:
             if megadottSzam.isdigit():
