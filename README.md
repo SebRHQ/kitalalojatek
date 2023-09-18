@@ -25,9 +25,10 @@ Nyugodtan lehet írni a tanácsokat az [issues](https://github.com/SebRHQ/kitala
 
 <hr><p align="center"><b>Telepítés:</b></p>
 
-A telepítéshez csak le kell tölteni a legfrissebb kitalalo.py fájlt a [releases](https://github.com/SebRHQ/kitalalojatek/releases) oldalról.
+<p align="center">❗A futtatáshoz szükséges a Python a számítógépen! A szoftver <a href="https://www.python.org/downloads/">itt</a> elérhető.❗</p>
 
-<p align="center">❗A futtatáshoz szükséges a Python a számítógépen! A szoftver [itt](https://www.python.org/downloads/) elérhető.❗</p>
+
+A telepítéshez csak le kell tölteni a legfrissebb kitalalo.py fájlt a [releases](https://github.com/SebRHQ/kitalalojatek/releases) oldalról.
 
 Miután biztosra mentünk, hogy a Python le van töltve a számítógépre csak kétszer rákattintunk a fájlra, majd futtatjuk. *(Lehetséges, hogy a futtatás előtt társítani kell a Pythonnal. Ha alapból valami más szoftverben nyitná meg jobb a fájlra, majd "Megnyitás ezzel:" vagy "Társítás..." gombra kattintva kiválasztjuk a Pythont.)*
 <hr><p align="center">
