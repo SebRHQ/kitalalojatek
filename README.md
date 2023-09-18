@@ -23,6 +23,11 @@ Nyugodtan lehet írni a tanácsokat az [issues](https://github.com/SebRHQ/kitala
 
 **Tervek:** Jelenleg az egyetlen tervem, hogy egy fájlba majd kiírjam a pontokat, hogy később lehessen folytatni a játékot. Talán 3 mentési hellyel.
 
+<hr><p align="center"><b>Telepítés:</b></p>
+
+A telepítéshez csak le kell tölteni a legfrissebb kitalalo.py fájlt a [releases](https://github.com/SebRHQ/kitalalojatek/releases) oldalról.
+
+❗A futtatáshoz szükséges a Python a számítógépen! A szoftver [itt](https://www.python.org/downloads/) elérhető.❗
 <hr><p align="center">
 🌟💓Egy csillagot elfogadok 💓🌟<br>
 The end
