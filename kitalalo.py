@@ -1,40 +1,54 @@
 from random import randint
 from time import sleep
 
+helyesInput = False
 helyesTalalat = 0
 helytelenTalalat = 0
 probalkozasok = 0
 nyelvHelyesseg = False
 ujra = True
+
 print("[1] Hungarian")
 print("[2] English")
 print("[3] German")
+
 nyelv = input("[❓] Please choose your language! (1/2/3): ")
 
-while not nyelvHelyesseg:
-    if nyelv == "1":
-        nyelvHelyesseg = True
-    elif nyelv == "2":
-        nyelvHelyesseg = True
-    elif nyelv == "3":
-        nyelvHelyesseg = True
+while not helyesInput:
+    if nyelv.isdigit():
+        nyelv = int(nyelv)
+        if 1 <= nyelv <= 3:
+            helyesInput = True
+        else:
+            print("[❌] Incorrect input!")
+            nyelv = input("[❓] Please enter a number between 1 and 3: ")
     else:
         print("[❌] Incorrect input!")
         nyelv = input("[❓] Please enter a number between 1 and 3: ")
-nyelv = int(nyelv)
+
 if nyelv == 1:
+    print("[✅] Kiválaszottad a magyar nyelvet!")
     print("[👋] Üdv!")
 
     while ujra:
-
         gondoltSzam = randint(1, 5)
         probalkozasok += 1
         print('[ℹ️] ', probalkozasok, '. Próbálkozás', sep='')
         print('[🤔] Gondoltam egy számra 1 és 5 között. Ki tudja találni? Sok sikert!\n')
-        megadottSzam = int(input('[🔢] A gondolt számom: '))
-        while not 1 <= megadottSzam <= 5:
-            print("[❌] Hibás bevitel!")
-            megadottSzam = int(input("[🔢] Kérem adjon meg egy számot 1 és 5 között: "))
+        megadottSzam = input('[🔢] A gondolt számom: ')
+        helyesInput = False
+        while not helyesInput:
+            if megadottSzam.isdigit():
+                megadottSzam = int(megadottSzam)
+                if 1 <= megadottSzam <= 5:
+                    helyesInput = True
+                else:
+                    print("[❌] Hibás bevitel!")
+                    megadottSzam = input('[🔢] Kérem adjon meg egy számot 1 és 5 között: ')
+            else:
+                print("[❌] Hibás bevitel!")
+                megadottSzam = input('[🔢] Kérem adjon meg egy számot 1 és 5 között: ')
+
         if megadottSzam == gondoltSzam:
             print('[🥳] Sikerült! Kitalálta! A gondolt szám tényleg', gondoltSzam, 'volt!')
             helyesTalalat += 1
@@ -45,14 +59,14 @@ if nyelv == 1:
             else:
                 print('[😭] A gondolt számom nagyobb mint a megadott száma volt! Az számom', gondoltSzam, 'volt!')
                 helytelenTalalat += 1
-        hibas = True
-        while hibas:
+        helyesInput = False
+        while not helyesInput:
             kerdes = input('[😊] Szeretné újra megpróbálni? (I/N): ')
             if kerdes.lower() == 'n':
                 ujra = False
-                hibas = False
+                helyesInput = True
             elif kerdes.lower() == 'i':
-                hibas = False
+                helyesInput = True
             else:
                 print('[❌] Hibás bevitel! Kérem használja a megadott formátumot.')
                 sleep(1)
@@ -85,17 +99,18 @@ elif nyelv == 2:
             else:
                 print('[😭] The thought number was bigger than the given number! My number is', gondoltSzam, '!')
                 helytelenTalalat += 1
-        hibas = True
-        while hibas:
+        helyesInput = False
+        while not helyesInput:
             kerdes = input('[😊] Would you like to try it again? (Y/N): ')
             if kerdes.lower() == 'n':
                 ujra = False
-                hibas = False
+                helyesInput = True
             elif kerdes.lower() == 'y':
-                hibas = False
+                helyesInput = True
             else:
                 print('[❌] Incorrect input! Please use the format provided.')
                 sleep(1)
+
     print('[ℹ️] Statistics:')
     print('  ', probalkozasok, 'attempt')
     print('   Correct guesses:', helyesTalalat)
@@ -125,14 +140,14 @@ else:
             else:
                 print('[😭] Die gedachte Zahl war größer als die angegebene Zahl! Meine Nummer ist', gondoltSzam, '!')
                 helytelenTalalat += 1
-        hibas = True
-        while hibas:
+        helyesInput = False
+        while helyesInput:
             kerdes = input('[😊] Möchten Sie es noch einmal versuchen? (J/N): ')
             if kerdes.lower() == 'n':
                 ujra = False
-                hibas = False
+                helyesInput = True
             elif kerdes.lower() == 'j':
-                hibas = False
+                helyesInput = True
             else:
                 print('[❌] Falsche Eingabe! Bitte verwenden Sie das bereitgestellte Format.')
                 sleep(1)
