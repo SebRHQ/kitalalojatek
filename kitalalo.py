@@ -27,7 +27,6 @@ while not helyesInput:
         nyelv = input("[❓] Please enter a number between 1 and 3: ")
 
 if nyelv == 1:
-    print("[✅] Kiválaszottad a magyar nyelvet!")
     print("[👋] Üdv!")
 
     while ujra:
@@ -69,7 +68,6 @@ if nyelv == 1:
                 helyesInput = True
             else:
                 print('[❌] Hibás bevitel! Kérem használja a megadott formátumot.')
-                sleep(1)
     print('[ℹ️] Statisztikák:')
     print('  ', probalkozasok, 'próbálkozás')
     print('   Sikeres találatok:', helyesTalalat)
@@ -86,11 +84,21 @@ elif nyelv == 2:
         print('[ℹ️] Attempt', probalkozasok)
         print('[🤔] I thought of a number between 1 and 5. Can guess it? Good luck!\n')
         megadottSzam = int(input('[🔢] My guess: '))
-        while not 1 <= megadottSzam <= 5:
-            print("[❌] Incorrect input!")
-            megadottSzam = int(input("[🔢] Please enter a number between 1 and 5: "))
+        helyesInput = False
+        while not helyesInput:
+            if megadottSzam.isdigit():
+                megadottSzam = int(megadottSzam)
+                if 1 <= megadottSzam <= 5:
+                    helyesInput = True
+                else:
+                    print("[❌] Incorrect input!")
+                    megadottSzam = input("[🔢] Please enter a number between 1 and 5: ")
+            else:
+                print("[❌] Incorrect input!")
+                megadottSzam = input("[🔢] Please enter a number between 1 and 5: ")
+
         if megadottSzam == gondoltSzam:
-            print('[🥳] You guessed it! The thought number really was', gondoltSzam, '!')
+            print('[🥳] [🥳] You guessed it! The thought number really was', gondoltSzam, '!')
             helyesTalalat += 1
         else:
             if gondoltSzam < megadottSzam:
@@ -109,8 +117,6 @@ elif nyelv == 2:
                 helyesInput = True
             else:
                 print('[❌] Incorrect input! Please use the format provided.')
-                sleep(1)
-
     print('[ℹ️] Statistics:')
     print('  ', probalkozasok, 'attempt')
     print('   Correct guesses:', helyesTalalat)
@@ -118,7 +124,7 @@ elif nyelv == 2:
     print('   Overall score:', helyesTalalat-helytelenTalalat, '\n')
     print('[👋] Bye!')
     sleep(10)
-else:
+elif nyelv == 3:
     print("[👋] Willkommen!")
 
     while ujra:
@@ -126,10 +132,20 @@ else:
         probalkozasok += 1
         print('[ℹ️] Versuchen', probalkozasok)
         print('[🤔] Ich dachte an eine Zahl zwischen 1 und 5. Kannst du sie erraten? Viel Glück!\n')
-        megadottSzam = int(input('[🔢] Meine Vermutung: '))
-        while not 1 <= megadottSzam <= 5:
-            print("[❌] Falsche Eingabe!")
-            megadottSzam = int(input("[🔢] Bitte geben Sie eine Zahl zwischen 1 und 5 ein: "))
+        megadottSzam = input('[🔢] Meine Vermutung: ')
+        helyesInput = False
+        while not helyesInput:
+            if megadottSzam.isdigit():
+                megadottSzam = int(megadottSzam)
+                if 1 <= megadottSzam <= 5:
+                    helyesInput = True
+                else:
+                    print("[❌] Falsche Eingabe!")
+                    megadottSzam = input('[🔢] Meine Vermutung: ')
+            else:
+                print("[❌] Falsche Eingabe!")
+                megadottSzam = input('[🔢] Meine Vermutung: ')
+
         if megadottSzam == gondoltSzam:
             print('[🥳] Du hast es erraten! Die Gedankenzahl war wirklich', gondoltSzam, '!')
             helyesTalalat += 1
@@ -141,7 +157,7 @@ else:
                 print('[😭] Die gedachte Zahl war größer als die angegebene Zahl! Meine Nummer ist', gondoltSzam, '!')
                 helytelenTalalat += 1
         helyesInput = False
-        while helyesInput:
+        while not helyesInput:
             kerdes = input('[😊] Möchten Sie es noch einmal versuchen? (J/N): ')
             if kerdes.lower() == 'n':
                 ujra = False
@@ -150,7 +166,6 @@ else:
                 helyesInput = True
             else:
                 print('[❌] Falsche Eingabe! Bitte verwenden Sie das bereitgestellte Format.')
-                sleep(1)
     print('[ℹ️] Statistiken:')
     print('   Alle Versuche:', probalkozasok)
     print('   Richtige Vermutungen:', helyesTalalat)
