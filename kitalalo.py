@@ -98,7 +98,7 @@ elif nyelv == 2:
                 megadottSzam = input("[🔢] Please enter a number between 1 and 5: ")
 
         if megadottSzam == gondoltSzam:
-            print('[🥳] [🥳] You guessed it! The thought number really was', gondoltSzam, '!')
+            print('[🥳] You guessed it! The thought number really was', gondoltSzam, '!')
             helyesTalalat += 1
         else:
             if gondoltSzam < megadottSzam:
